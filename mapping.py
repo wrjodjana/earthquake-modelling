@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime
+import geopandas as gpd
 
 from sklearn.model_selection import train_test_split
 
@@ -14,7 +15,12 @@ from sklearn.metrics import accuracy_score
 
 from imblearn.combine import SMOTEENN
 
+import contextily as ctx
+from shapely.geometry import Point
+
 df = pd.read_csv('earthquake-data.csv')
+
+gdf = gpd.read_file("datasets/batas_negara/Indonesia.shp")
 
 # added translations
 translations = {
@@ -55,3 +61,20 @@ magnitude_plot.set_title("Magnitudes of Earthquakes in Indonesia")
 magnitude_plot.set_ylabel("Depth", color="#58508d")
 magnitude_plot.set_xlabel("Magnitude", color="#58508d")
 plt.show()
+
+# geospatial visualization
+
+# convert to geodataframe and change crs
+gdf_earthquakes = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df["Longitude"], df["Latitude"]))
+gdf_earthquakes.crs = "EPSG:4326"
+gdf_earthquakes = gdf_earthquakes.to_crs(epsg=3857)
+
+# plot indonesian boundaries
+fig, ax = plt.subplots(figsize=(15, 10))
+gdf.to_crs(epsg=3857).plot(ax=ax, edgecolor='black', color='none')
+ctx.add_basemap(ax, source=ctx.providers.CartoDB.Positron)
+gdf_earthquakes.plot(ax=ax, marker='o', color='red', markersize=5, alpha=0.5)
+ax.set_axis_off()
+plt.title("Earthquake Magnitudes with Indonesian Boundaries")
+plt.show()
+
