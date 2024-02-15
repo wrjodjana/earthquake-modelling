@@ -14,14 +14,14 @@ translations = {
 df.rename(columns = translations, inplace = True)
 
 # Dropping columns we don't need
-df_drop = df.drop(['Date', 'Origin Time', 'strike1', 'dip1', 'rake1', 'strike2', 'dip2', 'rake2'], axis=1)
+df_drop = df.drop(['Origin Time', 'Location', 'strike1', 'dip1', 'rake1', 'strike2', 'dip2', 'rake2'], axis=1)
 df = df_drop
 
 # Dropping NAN values
 df.dropna(inplace=True)
 
 # Handling Outliers
-df_numerical = df.iloc[:,0:4]
+df_numerical = df.iloc[:,1:5]
 
 def remove_outliers(df):
     df_no_outliers = df.copy()
@@ -41,4 +41,4 @@ def remove_outliers(df):
 
 df_clean = remove_outliers(df_numerical)
 df_comp = df[df.index.isin(df_clean.index)]
-df = df_comp
+df_prediction = df_comp
