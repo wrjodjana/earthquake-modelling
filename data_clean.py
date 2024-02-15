@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('earthquake-data.csv')
+df = pd.read_csv('datasets/earthquake-data.csv')
 
 translations = {
     'tgl': 'Date',
