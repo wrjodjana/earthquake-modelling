@@ -9,10 +9,18 @@ The objective of our research is to predict earthquake locations and intensity i
 ## Dataset
 The dataset that we're using is provided by the BKMG (Badan Meteorologi, Klimatologi, dan Geofisika), which is an Indonesian non-departmental government agency and is compiled through Kaggle. The dataset is meticulously processed to handle missing values and outliers, ensuring its suitability for training and evaluating the models.
 
+## Methods
+
+Classification Algorithms Two prominent machine learning algorithms, Decision Trees and Support Vector Machine (SVM), are employed to build predictive models for earthquakes. These algorithms are chosen for their effectiveness in handling complex datasets and their potential to reveal patterns in earthquakes location and intensity
+
+## Model Evaluation
+
+Grid search Cross-Validation (Grid search CV) is employed to fine-tune the models and identify optimal parameters. The goal is to enhance the accuracy of the models in predicting the location and intensity of earthquakes.
+
 ## Acknowledgements
 [Meteorology, Climatology, and Geophysical Agency (Badan Meteorologi, Klimatologi, dan Geofisika; BMKG) Earthquake Repository](https://repogempa.bmkg.go.id/eventcatalog)
 
-[Earthquakes in Indonesia](https://www.kaggle.com/datasets/kekavigi/earthquakes-in-indonesia)
+[Earthquakes in Indonesia compiled by AGAPITUS KEYKA VIGILIANT](https://www.kaggle.com/datasets/kekavigi/earthquakes-in-indonesia)
 
 
 
