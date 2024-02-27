@@ -17,13 +17,11 @@ from imblearn.combine import SMOTEENN
 
 
 # earthquake data
-df = pd.read_csv('earthquake-data.csv')
+df = pd.read_csv('datasets/earthquake-data.csv')
 
 # boundaries data
 boundaries = gpd.read_file('datasets/indonesia_boundaries.geojson')
-print(boundaries.head())
 print(boundaries.geometry)
-print(boundaries.geometry.iloc[0])
 
 boundaries.plot()
 plt.show()
@@ -51,7 +49,3 @@ df.dropna(inplace=True)
 
 # convert dates to datetime type
 df['Date'] = pd.to_datetime(df['Date'])
-
-
-
-
