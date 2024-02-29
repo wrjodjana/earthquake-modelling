@@ -11,7 +11,7 @@ The dataset that we're using is provided by the BKMG (Badan Meteorologi, Klimato
 
 ## Methods
 
-Classification Algorithms Two prominent machine learning algorithms, Decision Trees and Support Vector Machine (SVM), are employed to build predictive models for earthquakes. These algorithms are chosen for their effectiveness in handling complex datasets and their potential to reveal patterns in earthquakes location and intensity
+Classification Algorithms Two prominent machine learning models, Hybrid CNN-RNN architecture and Long short-term memory (LSTM) network, are employed to build predictive models for earthquakes. These algorithms are chosen for their effectiveness in handling complex datasets and their potential to reveal patterns in earthquakes location and intensity
 
 ## Model Evaluation
 
